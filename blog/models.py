@@ -20,3 +20,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class a(models.Model):
+    ab = models.CharField(max_length=20)
