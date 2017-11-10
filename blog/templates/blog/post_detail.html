@@ -6,8 +6,25 @@
             <div class="date">
                 {{ post.published_date }}
             </div>
-        {% endif %}
+        {% endif %}<br>
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+        <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+    </div>
+    <div>
+    {% for comment in comments %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ comment.created_date }}</p>
+                    </div>
+                    <h1><a href="">{{ comment.name }}</a></h1>
+                    <p>{{ comment.body|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
     </div>
 {% endblock %}

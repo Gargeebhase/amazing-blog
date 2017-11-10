@@ -1,6 +1,12 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<div>
+     <form method="POST" >{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Search</button>
+    </form>
+    </div>
             {% for post in posts %}
                 <div class="post">
                     <div class="date">
@@ -12,3 +18,5 @@
             {% endfor %}
        
 {% endblock %}
+
+<!--class="post-form"-->
