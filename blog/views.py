@@ -10,7 +10,7 @@ def post_list(request):
     if request.method == 'POST':
         search = SearchForm(request.POST)
         if search.is_valid():
-            searchtag = search.cleaned_data.get('searchitem')
+            searchtag = search.cleaned_data.get('searchblog')
             posts = Post.objects.filter(text__contains=searchtag)
     else:    
         posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')

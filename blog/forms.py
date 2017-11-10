@@ -25,6 +25,6 @@ class SignUpForm(UserCreationForm):
         
         
 class SearchForm(forms.Form):
-    searchitem = forms.CharField(max_length=20)
+    searchblog = forms.CharField(max_length=20)
     
     
